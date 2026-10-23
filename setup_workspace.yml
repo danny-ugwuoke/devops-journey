@@ -1,0 +1,22 @@
+---
+- name: Automate My Project Workspace
+  hosts: my_local_machine
+  tasks:
+    - name: Create a secure deployment folder
+      ansible.builtin.file:
+        path: "{{ playbook_dir }}/automated_build"
+        state: directory
+        mode: '0755'
+
+    - name: Generate an automation audit report
+      ansible.builtin.copy:
+        dest: "{{ playbook_dir }}/automated_build/audit_report.txt"
+        content: |
+          =======================================
+          DEVOPS WORKSPACE AUDIT REPORT
+          =======================================
+          Status: Operational
+          Engine: Ansible Core
+          Target: Local Environment (WSL 2 Ubuntu)
+          Execution Date: Friday, October 2026
+          =======================================
